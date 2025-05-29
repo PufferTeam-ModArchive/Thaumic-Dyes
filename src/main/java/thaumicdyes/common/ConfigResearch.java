@@ -722,22 +722,24 @@ public class ConfigResearch {
 				   (new AspectList()).add(Aspect.FIRE, 20).add(Aspect.AIR, 20), 
 				   new Object[]{
 						" g ",
-						" H ",
+						"nHn",
 						" g ",
 						'H',new ItemStack(ItemHandler.itemCultistKnightHelmetDyed),
-						'g',new ItemStack(Items.dye, 1, 8)
+						'g',new ItemStack(Items.dye, 1, 8),
+						'n', "nuggetIron"
 						});
 		
 		ShapedArcaneRecipe recipeSunKniChest = ThaumcraftApi.addArcaneCraftingRecipe("TD.SUNNYD",
 				   new ItemStack(ItemHandler.itemSunKnightChest), 
 				   (new AspectList()).add(Aspect.FIRE, 20).add(Aspect.AIR, 20),
 				   new Object[]{
-						" r ",
+						"nrn",
 						"rCr",
-						" y ",
+						"nyn",
 						'C',new ItemStack(ItemHandler.itemCultistKnightChestDyed),
 						'r',new ItemStack(Items.dye, 1, 1),
-						'y',new ItemStack(Items.dye, 1, 11)
+						'y',new ItemStack(Items.dye, 1, 11),
+						'n', "nuggetIron"
 						});
 		 
 		 new ResearchItem("TD.SUNNYD", "DYES", 
@@ -751,7 +753,6 @@ public class ConfigResearch {
 						  })
 				  .setParentsHidden("TD.DYEDKNIGHT")
 				  .setConcealed()
-				  .setHidden()
 				  .registerResearchItem();
 	   
    }
@@ -759,8 +760,10 @@ public class ConfigResearch {
    //TODO Eldritch
    public static void researchEldritch() {
     	  
-    	  copy(ResearchCategories.getResearchList("ELDRITCH").research.get("ENTEROUTER"),"TD.OUTERARRIVAL","DYES",-2,6).setConcealed().setHidden().registerResearchItem();
+    	  //copy(ResearchCategories.getResearchList("ELDRITCH").research.get("ENTEROUTER"),"TD.OUTERARRIVAL","DYES",-2,6).setConcealed().setHidden().registerResearchItem();
           
+	   	  new FakeResearchItem("TD.OUTERARRIVAL", "DYES", "ENTEROUTER", "ELDRITCH", -2, 6, ResearchCategories.getResearch("ENTEROUTER").icon_resource).registerResearchItem();
+	   
           //Husk Armour
           InfusionRecipe recipeHuskHelm = ThaumcraftApi.addInfusionCraftingRecipe("TD.INHABITEDPLATE",
     			   new ItemStack(ItemHandler.itemInhabitedPlateHelmet), 3, 
@@ -973,8 +976,12 @@ public class ConfigResearch {
    //TODO THAUMIUM TIER
    public static void researchThaumium() {
 	   
-		copy(ResearchCategories.getResearchList("ALCHEMY").research.get("THAUMIUM"),"TD.THAUMIUM","DYES",2,-1).setConcealed().setHidden().registerResearchItem();
-		copy(ResearchCategories.getResearchList("ARTIFICE").research.get("ARMORFORTRESS"),"TD.ARMORFORTRESS","DYES",7,-2	).setConcealed().setHidden().registerResearchItem();
+	   //copy(ResearchCategories.getResearchList("ALCHEMY").research.get("THAUMIUM"),"TD.THAUMIUM","DYES",2,-1).setConcealed().setHidden().registerResearchItem();
+	   //copy(ResearchCategories.getResearchList("ARTIFICE").research.get("ARMORFORTRESS"),"TD.ARMORFORTRESS","DYES",7,-2	).setConcealed().setHidden().registerResearchItem();
+		
+	   new FakeResearchItem("TD.THAUMIUM", "DYES", "THAUMIUM", "ALCHEMY", 2, -1, ResearchCategories.getResearch("THAUMIUM").icon_item).registerResearchItem();
+	   new FakeResearchItem("TD.ARMORFORTRESS", "DYES", "ARMORFORTRESS", "ARTIFICE", 7, -2, ResearchCategories.getResearch("ARMORFORTRESS").icon_item).registerResearchItem();
+		
 		
 		/////////////
 		//Thaumium Fortress
@@ -1078,7 +1085,9 @@ public class ConfigResearch {
    //TODO VOID TIER
    public static void researchVoid() {
 	   
-	      copy(ResearchCategories.getResearchList("ELDRITCH").research.get("ARMORVOIDFORTRESS"),"TD.VOIDFORTRESS","DYES",2,6).setConcealed().setHidden().registerResearchItem();
+	      //copy(ResearchCategories.getResearchList("ELDRITCH").research.get("ARMORVOIDFORTRESS"),"TD.VOIDFORTRESS","DYES",2,6).setConcealed().setHidden().registerResearchItem();
+	      
+	      new FakeResearchItem("TD.VOIDFORTRESS", "DYES", "ARMORVOIDFORTRESS", "ELDRITCH", 2, 6, ResearchCategories.getResearch("ARMORVOIDFORTRESS").icon_item).registerResearchItem();
 	      
 		  /////////////
 		  //Void Robes
@@ -1117,7 +1126,9 @@ public class ConfigResearch {
    //TODO boots
    public static void researchBoots() {
 	   
-	      copy(ResearchCategories.getResearchList("ARTIFICE").research.get("BOOTSTRAVELLER"),"TD.BOOTSTRAVELLER","DYES",4,2).setConcealed().setHidden().registerResearchItem();
+	      //copy(ResearchCategories.getResearchList("ARTIFICE").research.get("BOOTSTRAVELLER"),"TD.BOOTSTRAVELLER","DYES",4,2).setConcealed().setHidden().registerResearchItem();
+	      
+	      new FakeResearchItem("TD.BOOTSTRAVELLER", "DYES", "BOOTSTRAVELLER", "ARTIFICE", 4, 2, ResearchCategories.getResearch("BOOTSTRAVELLER").icon_item).registerResearchItem();
 	      
 		  /////////////
 		  //Thaumium boots
@@ -1350,7 +1361,7 @@ public class ConfigResearch {
       				        				 
       				  })
 			  .setParents("TD.PRIMALRUNICARMOR")
-			  .setLost()
+			  .setConcealed()
 			  .registerResearchItem();
       
 			      
@@ -1362,6 +1373,8 @@ public class ConfigResearch {
    
    //For some things
    //Borrowed from Thaumic Bases. Allows creating copies of research over to a tab
+   
+   /*
    public static ResearchItem copy(ResearchItem res, String newKey, String newCat, int dC, int dR)
 	{
 		ResearchItem rItem;
@@ -1419,6 +1432,7 @@ public class ConfigResearch {
 		
 		return rItem;
 	}
+	*/
    
   
 }
