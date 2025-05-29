@@ -34,10 +34,7 @@ public class CultistRanger extends ItemArmor
     public IIcon iconHelm;
     public IIcon iconChest;
     public IIcon iconLegs;
-    public IIcon iconChestOver;
-    public IIcon iconLegsOver;
     public IIcon iconBlank;
-    public IIcon iconHelmOver;
 
     public CultistRanger(ArmorMaterial enumarmormaterial, int j, int k) {
         super(enumarmormaterial, j, k);

@@ -29,10 +29,7 @@ public class CultistArcherDyed extends ItemArmor implements IRepairable, IRunicA
     public IIcon iconHelm;
     public IIcon iconChest;
     public IIcon iconLegs;
-    public IIcon iconChestOver;
-    public IIcon iconLegsOver;
     public IIcon iconBlank;
-    public IIcon iconHelmOver;
     ModelBiped model1 = null;
     ModelBiped model2 = null;
     ModelBiped model = null;
@@ -44,13 +41,10 @@ public class CultistArcherDyed extends ItemArmor implements IRepairable, IRunicA
 
     @SideOnly(Side.CLIENT) // replace all these
     public void registerIcons(IIconRegister ir) {
-        this.iconHelmOver = ir.registerIcon("thaumicdyes:icon/cultist_archer_helm");
-        this.iconChestOver = ir.registerIcon("thaumicdyes:icon/cultist_plate_chest");
-        this.iconLegsOver = ir.registerIcon("thaumicdyes:icon/cultist_plate_legs");
+        this.iconHelm = ir.registerIcon("thaumicdyes:icon/cultist_archer_helm");
+        this.iconChest = ir.registerIcon("thaumicdyes:icon/cultist_plate_chest");
+        this.iconLegs = ir.registerIcon("thaumicdyes:icon/cultist_plate_legs");
         this.iconBlank = ir.registerIcon("thaumicdyes:blank");
-        this.iconChest = ir.registerIcon("thaumicdyes:blank");
-        this.iconLegs = ir.registerIcon("thaumicdyes:blank");
-        this.iconHelm = ir.registerIcon("thaumicdyes:blank");
     }
 
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
@@ -65,12 +59,16 @@ public class CultistArcherDyed extends ItemArmor implements IRepairable, IRunicA
 
     // helm over
     public IIcon getIconFromDamageForRenderPass(int par1, int par2) {
-        return super.armorType == 2 ? this.iconLegsOver
-            : (super.armorType == 1 ? this.iconChestOver
-                : (super.armorType == 0 ? this.iconHelmOver
-                    : (super.armorType == 2 ? this.iconLegs
-                        : (super.armorType == 1 ? this.iconChest
-                            : (super.armorType == 0 ? this.iconHelm : this.iconBlank)))));
+        if (super.armorType == 1 && par2 == 0) {
+            return this.iconChest;
+        }
+        if (super.armorType == 2 && par2 == 0) {
+            return this.iconLegs;
+        }
+        if (super.armorType == 0 && par2 == 0) {
+            return this.iconHelm;
+        }
+        return this.iconBlank;
     }
 
     public EnumRarity getRarity(ItemStack itemstack) {
@@ -156,10 +154,9 @@ public class CultistArcherDyed extends ItemArmor implements IRepairable, IRunicA
         if (nbttagcompound != null) {
             NBTTagCompound nbttagcompound1 = nbttagcompound.getCompoundTag("display");
             if (nbttagcompound1.hasKey("color")) {
-                nbttagcompound1.removeTag("color");
+                nbttagcompound1.setInteger("color", 16777215);
             }
         }
-
     }
 
     public void func_82813_b(ItemStack par1ItemStack, int par2) {

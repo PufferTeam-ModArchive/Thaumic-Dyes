@@ -27,10 +27,6 @@ public class InhabitedKnightArmor extends ItemArmor implements IRepairable, IRun
     public IIcon iconHelm;
     public IIcon iconChest;
     public IIcon iconLegs;
-    public IIcon iconChestOver;
-    public IIcon iconLegsOver;
-    public IIcon iconBlank;
-    public IIcon iconHelmOver;
     ModelBiped model1 = null;
     ModelBiped model2 = null;
     ModelBiped model = null;
