@@ -6,26 +6,17 @@ import net.minecraftforge.common.config.Configuration;
 
 public class Config {
 
-	public static Configuration config;
-	
-	public static Boolean test1;
-	
-	public static void initialize(File file) {
-	    config = new Configuration(file);
-	    
-	    
-	    config.load();
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    config.save();
-	    
-	    
-	}
-	
-	
+    public static Configuration config;
+
+    public static Boolean test1;
+
+    public static void initialize(File file) {
+        config = new Configuration(file);
+
+        config.load();
+
+        config.save();
+
+    }
+
 }

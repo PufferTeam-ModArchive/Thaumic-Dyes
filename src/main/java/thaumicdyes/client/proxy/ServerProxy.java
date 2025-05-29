@@ -3,25 +3,20 @@ package thaumicdyes.client.proxy;
 import net.minecraft.util.IIcon;
 
 public class ServerProxy {
-   public void registerKeyBindings() {
-   }
 
-   public void registerRenderers() {
-   }
+    public void registerKeyBindings() {}
 
-   public void registerRenderInfo() {
-   }
+    public void registerRenderers() {}
 
-   public IIcon getIcon(String string) {
-      return null;
-   }
+    public void registerRenderInfo() {}
 
-   public void registerCustomIcons() {
-   }
+    public IIcon getIcon(String string) {
+        return null;
+    }
 
-   public void initRenderers() {
-   }
+    public void registerCustomIcons() {}
 
-   public void initSounds() {
-   }
+    public void initRenderers() {}
+
+    public void initSounds() {}
 }
