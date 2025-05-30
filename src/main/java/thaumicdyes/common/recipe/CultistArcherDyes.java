@@ -29,7 +29,7 @@ public class CultistArcherDyes implements IRecipe {
 
                     itemstack = itemstack1;
                 } else {
-                    if (!OreDictionaryHelper.isOre(itemstack1, "dye")) {
+                    if (!OreDictionaryHelper.isDye(itemstack1)) {
                         return false;
                     }
 
@@ -76,7 +76,7 @@ public class CultistArcherDyes implements IRecipe {
                         ++j;
                     }
                 } else {
-                    if (!OreDictionaryHelper.isOre(var13, "dye")) {
+                    if (!OreDictionaryHelper.isDye(var13)) {
                         return null;
                     }
                     float[] var171 = EntitySheep.fleeceColorTable[BlockColored
