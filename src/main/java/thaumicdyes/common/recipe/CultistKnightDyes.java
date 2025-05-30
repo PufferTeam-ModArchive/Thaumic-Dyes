@@ -29,7 +29,7 @@ public class CultistKnightDyes implements IRecipe {
 
                     itemstack = itemstack1;
                 } else {
-                    if (!OreDictionaryHelper.isDye(itemstack1)) {
+                    if (!ColorHelper.isDye(itemstack1)) {
                         return false;
                     }
 
@@ -76,11 +76,11 @@ public class CultistKnightDyes implements IRecipe {
                         ++j;
                     }
                 } else {
-                    if (!OreDictionaryHelper.isDye(var13)) {
+                    if (!ColorHelper.isDye(var13)) {
                         return null;
                     }
                     float[] var171 = EntitySheep.fleeceColorTable[BlockColored
-                        .func_150032_b(ItemDamageCompat.getCorrectColor(var13))];
+                        .func_150032_b(ColorHelper.getColor(var13))];
                     int var15 = (int) (var171[0] * 255.0F);
                     int var16 = (int) (var171[1] * 255.0F);
                     var17 = (int) (var171[2] * 255.0F);
