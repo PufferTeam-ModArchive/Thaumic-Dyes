@@ -37,4 +37,7 @@ dependencies {
     api('com.github.GTNewHorizons:Baubles:1.0.4:dev')
 
     api('thaumcraft:Thaumcraft:1.7.10-4.2.3.5:dev')
+
+    api files("libs/+unimixins-all-1.7.10-0.1.20-dev.jar")
+    api files("libs/etfuturum-2.6.2-dev.jar")
 }

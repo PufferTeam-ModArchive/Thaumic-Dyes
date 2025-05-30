@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import net.minecraft.block.BlockColored;
 import net.minecraft.entity.passive.EntitySheep;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -30,7 +29,7 @@ public class VoidRobeDyes implements IRecipe {
 
                     itemstack = itemstack1;
                 } else {
-                    if (itemstack1.getItem() != Items.dye) {
+                    if (!OreDictionaryHelper.isOre(itemstack1, "dye")) {
                         return false;
                     }
 
@@ -77,11 +76,11 @@ public class VoidRobeDyes implements IRecipe {
                         ++j;
                     }
                 } else {
-                    if (var13.getItem() != Items.dye) {
+                    if (!OreDictionaryHelper.isOre(var13, "dye")) {
                         return null;
                     }
-
-                    float[] var171 = EntitySheep.fleeceColorTable[BlockColored.func_150032_b(var13.getItemDamage())];
+                    float[] var171 = EntitySheep.fleeceColorTable[BlockColored
+                        .func_150032_b(ItemDamageCompat.getCorrectColor(var13))];
                     int var15 = (int) (var171[0] * 255.0F);
                     int var16 = (int) (var171[1] * 255.0F);
                     var17 = (int) (var171[2] * 255.0F);
